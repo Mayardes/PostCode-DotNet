@@ -8,5 +8,5 @@ namespace PostCode_Dotnet.Services;
 public interface IPostcode
 {
     [Get("/postcodes/{code}")]
-    Task<Address> GetAsync(string code);
+    Task<Addresses> GetAsync(string code);
 }
