@@ -17,6 +17,13 @@ public class AddressController(IPostcode postcode) : ControllerBase
         var result = await _postCode.GetAsync(postcode);
 
         return Ok(result);
+    }
 
+    [HttpGet("postcode/longitude&latitude")]
+    public async Task<IActionResult> GetByLongitudeAndLatitudeAsync([FromQuery][Required] decimal longitude, [Required]decimal latitude)
+    {
+        var result = await _postCode.GetByLongitudeAndLatitudeAsync(longitude, latitude);
+
+        return Ok(result);
     }
 }

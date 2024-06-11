@@ -8,5 +8,8 @@ namespace PostCode_Dotnet.Services;
 public interface IPostcode
 {
     [Get("/postcodes/{code}")]
-    Task<Addresses> GetAsync(string code);
+    Task<AddressesCode> GetAsync(string code);
+
+    [Get("/postcodes?lon={longitude}&lat={latitude}")]
+    Task<AddressesLongLat> GetByLongitudeAndLatitudeAsync(decimal longitude, decimal latitude);
 }
