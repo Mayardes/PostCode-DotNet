@@ -12,4 +12,7 @@ public interface IPostcode
 
     [Get("/postcodes?lon={longitude}&lat={latitude}")]
     Task<AddressesLongLat> GetByLongitudeAndLatitudeAsync(decimal longitude, decimal latitude);
+
+    [Get("/postcodes/{code}/validate")]
+    Task<AddressesValidate> GetValidationAsync(string code);
 }

@@ -26,4 +26,12 @@ public class AddressController(IPostcode postcode) : ControllerBase
 
         return Ok(result);
     }
+
+      [HttpGet("postcode/validate")]
+    public async Task<IActionResult> GetByLongitudeAndLatitudeAsync([FromQuery][Required] string postcode)
+    {
+        var result = await _postCode.GetValidationAsync(postcode);
+
+        return Ok(result);
+    }
 }
